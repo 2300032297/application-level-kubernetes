@@ -1,0 +1,20 @@
+name: application-recovery
+services:
+  recovery-console:
+    image: kube-recover:1.0.0
+    build: .
+    init: true
+    ports: ["127.0.0.1:8090:8080"]
+    volumes: ["application-data:/data"]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]
+    mem_limit: 512m
+    cpus: 1
+    healthcheck:
+      test: [CMD, python, -c, "from urllib.request import urlopen; urlopen('http://localhost:8080/healthz',timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+volumes:
+  application-data:

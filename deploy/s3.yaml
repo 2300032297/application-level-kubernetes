@@ -1,0 +1,15 @@
+name: kr-application-store
+services:
+  store:
+    image: chrislusf/seaweedfs:3.85@sha256:49312939c00c01e5ee6afbd7d728b18027821d3764c35a797a72acd4fdf3296a
+    command: [server, -dir=/data, -s3, -s3.config=/etc/seaweedfs/s3.json, -volume.max=20, -master.volumeSizeLimitMB=64, -ip=store]
+    ports: ["127.0.0.1:9090:8333", "127.0.0.1:9091:8888"]
+    volumes:
+      - backup-data:/data
+      - ../runtime/lab/s3.json:/etc/seaweedfs/s3.json:ro
+    networks: [kind]
+volumes:
+  backup-data:
+networks:
+  kind:
+    external: true

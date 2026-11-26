@@ -1,0 +1,46 @@
+{
+  "purpose": "Synthetic demonstration; no real customers",
+  "seed": 101,
+  "v1": {
+    "application_version": "1.0",
+    "schema_version": 1,
+    "counts": {
+      "customers": 2000,
+      "products": 80,
+      "orders": 50000,
+      "order_items": 150241
+    },
+    "table_hashes": {
+      "customers": "d325195687f4d9e98fe5abd5d78ddd81b5e4dde5ad259927490b362d6b507985",
+      "products": "aabf9cd25d7d21378a04f70c676e617ab5d23de55fcec62c5b515bc962483e05",
+      "orders": "5dc5ab9c6a55b44bfb4f6f20deafff1700edfffd83352d07ad0157bf7c144983",
+      "order_items": "63850d7cea6a7d53de7a32c48775f7078d6d5c5b9fcdf9648b9a628366de1a8a"
+    },
+    "semantic_sha256": "c86701c37818f1579a73c20073ca9417b0434b79668e9ac305f8ae54d2a4f010",
+    "total_minor": 189299371374,
+    "currency": "INR",
+    "bytes": 6508544,
+    "integrity": "ok"
+  },
+  "v2": {
+    "application_version": "2.0",
+    "schema_version": 2,
+    "counts": {
+      "customers": 2000,
+      "products": 80,
+      "orders": 50000,
+      "order_items": 150241
+    },
+    "table_hashes": {
+      "customers": "d325195687f4d9e98fe5abd5d78ddd81b5e4dde5ad259927490b362d6b507985",
+      "products": "aabf9cd25d7d21378a04f70c676e617ab5d23de55fcec62c5b515bc962483e05",
+      "orders": "5dc5ab9c6a55b44bfb4f6f20deafff1700edfffd83352d07ad0157bf7c144983",
+      "order_items": "63850d7cea6a7d53de7a32c48775f7078d6d5c5b9fcdf9648b9a628366de1a8a"
+    },
+    "semantic_sha256": "c86701c37818f1579a73c20073ca9417b0434b79668e9ac305f8ae54d2a4f010",
+    "total_minor": 189299371374,
+    "currency": "INR",
+    "bytes": 11821056,
+    "integrity": "ok"
+  }
+}

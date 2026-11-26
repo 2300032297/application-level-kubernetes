@@ -1,0 +1,30 @@
+name: kr-minio
+services:
+  volume-init:
+    image: alpine:3.22
+    command: ["chown", "10001:10001", "/data"]
+    volumes: ["minio-data:/data"]
+    cap_drop: [ALL]
+    cap_add: [CHOWN]
+  minio:
+    image: kube-recover-minio:2025-10-15
+    build:
+      context: .
+      dockerfile: Minio.Dockerfile
+    env_file: ../runtime/minio.env
+    ports: ["127.0.0.1:9000:9000", "127.0.0.1:9001:9001"]
+    volumes: ["minio-data:/data"]
+    mem_limit: 512m
+    cpus: 1
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]
+    depends_on:
+      volume-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test: [CMD, wget, -q, -O, /dev/null, "http://127.0.0.1:9000/minio/health/live"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+volumes:
+  minio-data:

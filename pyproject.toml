@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "application-level-kubernetes-recovery"
+version = "1.0.0"
+description = "Application-Level Kubernetes Backup, Restore and Migration"
+requires-python = ">=3.11"
+dependencies = []
+[project.scripts]
+kube-recover = "kube_recover.__main__:main"
+[tool.setuptools.packages.find]
+include = ["kube_recover*"]
+[tool.setuptools.package-data]
+kube_recover = ["*.html"]
